@@ -1,0 +1,99 @@
+:root{
+--background: #EBF4DD;
+--light-color: #90AB8B;
+--done: #007E6E;
+--darker-color: #5A7863;
+--font: #3B4953;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width:100%;
+    display:grid;
+    place-items: center;
+    padding: 10rem 10rem;
+    background-color: var(--light-color);
+    font-size: 1.8rem;
+    color: var(--font);
+    font-family: "Zain", sans-serif;
+    min-height: 100vh;
+}
+
+main{
+    width: 60%;
+    border: solid var(--darker-color) .5rem;
+    border-radius: 50px;
+    background-color: var(--background);
+    display: flex;
+    flex-flow:column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+    gap: 2.5rem;
+}
+
+.title{
+  font-family: "Limelight", sans-serif;
+  font-size: 5.5rem;
+  letter-spacing: .2rem;
+}
+
+.input__div{
+    display: flex;
+    gap: 1.5rem;
+    border-bottom:solid var(--darker-color) .1rem;
+    padding: 2rem 7rem 2rem 7rem;
+}
+
+.input{
+    font-family: "Zain", sans-serif;
+    font-size: 1.6rem;
+    padding: 1rem 2.5rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    border: solid 1px var(--light-color);
+    transition: ease-in .1s;
+    
+    &:focus{
+        outline: solid 2px var(--darker-color);
+    }
+}
+
+.button{
+    background-color: var(--darker-color);
+    color: var(--background);
+    font-family: "Zain", sans-serif;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border:none;
+    transition: ease-in .1s;
+     
+    &:hover{
+        background-color: var(--light-color);
+        color: #fff;
+    }
+}
+
+.list{
+    list-style: none;
+}
+
+.tracker__div{
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+    width: 50%;
+    border-top: solid 1px var(--darker-color);
+    padding-top:2rem
+}
