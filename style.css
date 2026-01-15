@@ -50,11 +50,11 @@ main{
 .input__div{
     display: flex;
     gap: 1.5rem;
-    border-bottom:solid var(--darker-color) .1rem;
-    padding: 2rem 7rem 2rem 7rem;
+    /* border-bottom:solid var(--darker-color) .1rem; */
+    padding: 2rem 7rem .5rem 7rem;
 }
 
-.input{
+.task-input{
     font-family: "Zain", sans-serif;
     font-size: 1.6rem;
     padding: 1rem 2.5rem;
@@ -87,6 +87,38 @@ main{
 
 .list{
     list-style: none;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 2rem
+}
+
+.list-item{
+    display:flex;
+    width:80%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: solid var(--light-color) 3px;
+    border-radius: 1rem;
+    font-weight: 700;
+}
+
+.list-item img{
+    max-height: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.list-item div{
+display: flex;
+gap: 3rem;
+}
+
+.list-item p{
+text-transform: capitalize;
 }
 
 .tracker__div{
@@ -96,4 +128,8 @@ main{
     width: 50%;
     border-top: solid 1px var(--darker-color);
     padding-top:2rem
+}
+
+.close{
+    display: none;
 }
