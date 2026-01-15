@@ -4,6 +4,7 @@
 --done: #007E6E;
 --darker-color: #5A7863;
 --font: #3B4953;
+--done-font: #3b4953a4;
 }
 
 *{
@@ -121,6 +122,11 @@ gap: 3rem;
 text-transform: capitalize;
 }
 
+.done-text{
+    text-decoration: line-through;
+    color: var(--done-font);
+}
+
 .tracker__div{
     display: flex;
     justify-content: center;
@@ -132,4 +138,29 @@ text-transform: capitalize;
 
 .close{
     display: none;
+}
+
+@media screen and (max-width: 840px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    html{
+        font-size: 50%;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    body{
+    padding: 0rem 0rem;
+    }
+    
+    main{
+    width: 90%;
+    padding: 4rem 0rem;
+    }
+
 }

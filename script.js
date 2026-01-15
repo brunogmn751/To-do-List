@@ -7,11 +7,11 @@ const incompleteTracker = document.querySelector("#incomplete");
 let done = 0;
 let incomplete = 0;
 
-function updateDoneTasks(){
-    let currentNumber = doneTracker.textContent.split(" ")[1];
-    currentNumber = done;
-    doneTracker.innerText = "Done: " + currentNumber;
+function updateTasks() {
+  doneTracker.innerText = "Done: " + done;
+  incompleteTracker.innerText = "Incomplete: " + incomplete;
 }
+
 
 function addTask() {
   const newLi = document.createElement("li");
@@ -19,13 +19,12 @@ function addTask() {
   const newDiv = document.createElement("div");
   const checkInput = document.createElement("input");
   checkInput.type = "checkbox";
+  checkInput.onchange = doneTask;
   const pElement = document.createElement("p");
   pElement.innerText = taskInput.value;
   const closeIcon = document.createElement("img");
   closeIcon.src = "./images/close-icon.webp";
   closeIcon.onclick = closeTask;
-
-  
 
   newDiv.appendChild(checkInput);
   newDiv.appendChild(pElement);
@@ -34,24 +33,43 @@ function addTask() {
 
   taskList.appendChild(newLi);
   taskInput.value = "";
+  incomplete++;
+  updateTasks();
 }
 
-function closeTask(){
-    console.log(this.parentNode);
-    taskList.removeChild(this.parentNode)
+function closeTask() {
+    if (this.parentNode.classList.contains("done-task")){
+        done--;
+    } else{
+        incomplete--;
+    }
+    taskList.removeChild(this.parentNode);
+  updateTasks();
 }
 
+function doneTask(){
+console.log("rodou")
+    if(this.checked){
+        this.parentNode.parentNode.classList.add("done-task")
+        this.nextElementSibling.classList.add("done-text");
+        done++
+        incomplete--
+        updateTasks();
+    } else{
+        this.parentNode.parentNode.classList.remove("done-task")
+        this.nextElementSibling.classList.remove("done-text");
+        done--;
+        incomplete++;
+       updateTasks();
+    }
+}
 
-
-// function wtf() {
-//   let taskName = taskInput.value;
-//   console.log(taskName);
-//   taskInput.value = "";
-// }
 
 addButton.addEventListener("click", addTask);
-taskInput.addEventListener("keydown", function add(event){
-    if(event.key === "Enter"){
-        addTask();
-    }
+taskInput.addEventListener("keydown", function add(event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
+
+
