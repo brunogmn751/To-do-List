@@ -99,6 +99,7 @@ main{
 .list-item{
     display:flex;
     width:80%;
+    max-width: 80%;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
@@ -111,15 +112,19 @@ main{
     max-height: 2rem;
     cursor: pointer;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .list-item div{
 display: flex;
 gap: 3rem;
+max-width: 80%;
 }
 
 .list-item p{
-text-transform: capitalize;
+    text-transform: capitalize;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .done-text{
@@ -149,6 +154,15 @@ text-transform: capitalize;
 @media screen and (max-width: 767px){
     html{
         font-size: 50%;
+    }
+
+     body{
+    padding: 1rem 1rem;
+    }
+    
+    main{
+    width: 80%;
+    padding: 4rem 0rem;
     }
 
 }

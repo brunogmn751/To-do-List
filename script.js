@@ -12,8 +12,11 @@ function updateTasks() {
   incompleteTracker.innerText = "Incomplete: " + incomplete;
 }
 
-
 function addTask() {
+  if (taskInput.value === "") {
+    return;
+  };
+
   const newLi = document.createElement("li");
   newLi.classList.add("list-item");
   const newDiv = document.createElement("div");
@@ -38,32 +41,31 @@ function addTask() {
 }
 
 function closeTask() {
-    if (this.parentNode.classList.contains("done-task")){
-        done--;
-    } else{
-        incomplete--;
-    }
-    taskList.removeChild(this.parentNode);
+  if (this.parentNode.classList.contains("done-task")) {
+    done--;
+  } else {
+    incomplete--;
+  }
+  taskList.removeChild(this.parentNode);
   updateTasks();
 }
 
-function doneTask(){
-console.log("rodou")
-    if(this.checked){
-        this.parentNode.parentNode.classList.add("done-task")
-        this.nextElementSibling.classList.add("done-text");
-        done++
-        incomplete--
-        updateTasks();
-    } else{
-        this.parentNode.parentNode.classList.remove("done-task")
-        this.nextElementSibling.classList.remove("done-text");
-        done--;
-        incomplete++;
-       updateTasks();
-    }
+function doneTask() {
+  console.log("rodou");
+  if (this.checked) {
+    this.parentNode.parentNode.classList.add("done-task");
+    this.nextElementSibling.classList.add("done-text");
+    done++;
+    incomplete--;
+    updateTasks();
+  } else {
+    this.parentNode.parentNode.classList.remove("done-task");
+    this.nextElementSibling.classList.remove("done-text");
+    done--;
+    incomplete++;
+    updateTasks();
+  }
 }
-
 
 addButton.addEventListener("click", addTask);
 taskInput.addEventListener("keydown", function add(event) {
@@ -71,5 +73,3 @@ taskInput.addEventListener("keydown", function add(event) {
     addTask();
   }
 });
-
-
