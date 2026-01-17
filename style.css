@@ -52,6 +52,7 @@ main{
 
 .input__div{
     display: flex;
+    justify-content: space-between;
     gap: 1.5rem;
     /* border-bottom:solid var(--darker-color) .1rem; */
     padding: 2rem 7rem .5rem 7rem;
@@ -63,8 +64,8 @@ main{
     font-size: 1.6rem;
     padding: 1rem 3.5rem;
     padding-left: 1rem;
-    width:80%;
-    max-width:80%;
+    width:100%;
+    max-width:90%;
     border-radius: 1rem;
     border: solid 1px var(--light-color);
     transition: ease-in .1s;
